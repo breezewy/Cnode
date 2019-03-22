@@ -195,7 +195,7 @@ export default {
     margin-right: 10px;
   }
 
-  .topiclist_tab {
+   .posts .topiclist_tab {
     background-color: #e5e5e5;
     color: #999;
     padding: 2px 4px;
