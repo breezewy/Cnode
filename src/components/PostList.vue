@@ -27,16 +27,14 @@
           <!--动态绑定数据，一定爱用v-bind-->
           <!-- 回复/浏览 -->
           <span class="allcount">
-            <span class="reply_count">{{post.reply_count}}</span>
-            /
+            <span class="reply_count">{{post.reply_count}}</span>/
             <span class="visit_count">{{post.visit_count}}</span>
           </span>
           
           <!-- 帖子的分类 -->
-          <span
-            :class="[{put_top:(post.top == true),put_good:(post.good == true),
-                    'topiclist_tab':(post.top != true&& post.good != true)}]"
-          >
+          <span :class="[{put_good:(post.good == true),put_top:(post.top == true),
+                    'topiclist-tab':(post.top != true&& post.good != true)}]">
+          
             <span>{{post | tabFormat}}</span>
           </span>
 
