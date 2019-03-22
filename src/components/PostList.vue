@@ -162,7 +162,7 @@ export default {
   }
 
   li:not(:first-child):hover {
-    background: #f5f5f5;;
+    background: #f5f5f5;
   }
 
   li:last-child:hover {
