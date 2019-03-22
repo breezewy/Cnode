@@ -178,7 +178,7 @@ export default {
     font-size: 12px;
   }
 
-  .reply_count {
+  .posts .reply_count {
     color: #9e78c0;
     font-size: 14px;
   }
