@@ -14,12 +14,11 @@
       <ul>
         <li>
           <div class="toobar">
-            <span>全部</span>
-            <span>精华</span>
-            <span>分享</span>
-            <span>问答</span>
-            <span>招聘</span>
-            <span>客户端测试</span>
+            <span @click="change" :class="[tab === ''?'active':'deactive']">全部</span>
+            <span @click="change" :class="[tab === 'good'?'active':'deactive']">精华</span>
+            <span @click="change" :class="[tab === 'share'?'active':'deactive']">分享</span>
+            <span @click="change" :class="[tab === 'ask'?'active':'deactive']">问答</span>
+            <span @click="change" :class="[tab === 'job'?'active':'deactive']">招聘</span>
           </div>
         </li>
         <li v-for="post in posts" :key="post.id">
@@ -36,7 +35,7 @@
           <!-- 帖子的分类 -->
           <span
             :class="[{put_top:(post.top == true),put_good:(post.good == true),
-                    topiclist_tab:(post.top != true&& post.good != true)}]"
+                    'topiclist_tab':(post.top != true&& post.good != true)}]"
           >
             <span>{{post | tabFormat}}</span>
           </span>
@@ -78,7 +77,8 @@ export default {
       // 默认没有加载
       isLoading: false,
       posts: [] ,//页面列表数组
-      postpage:1
+      postpage:1,
+      tab:''
     };
   },
   components:{
@@ -90,7 +90,8 @@ export default {
         .get("https://cnodejs.org/api/v1/topics", {
           params:{
             page: this.postpage,
-            limit: 20
+            limit: 20,
+            tab:this.tab
           }
         })
         .then(res => {
@@ -102,6 +103,22 @@ export default {
           console.log(err);
         });
     },
+     change(event){
+          if(event.currentTarget.innerText ==='全部'){
+            this.tab = ''
+          }else if(event.currentTarget.innerText ==='精华'){
+            this.tab = 'good'
+          }else if(event.currentTarget.innerText ==='分享'){
+            this.tab = 'share'
+          }else if(event.currentTarget.innerText ==='问答'){
+            this.tab = 'ask'
+          }else if(event.currentTarget.innerText ==='招聘'){
+            this.tab = 'job'
+          }else{
+            
+          }
+          this.getData();
+        },
     renderList(value){
       this.postpage = value
       this.getData();
@@ -209,7 +226,7 @@ export default {
     background-color: #f5f5f5;
   }
 
-  .toobar span {
+  .toobar .deactive {
     font-size: 14px;
     color: #80bd01;
     line-height: 40px;
@@ -217,9 +234,9 @@ export default {
     cursor: pointer;
   }
 
-  .toobar span:hover {
+  /* .toobar span:hover {
     color: #9e78c0;
-  }
+  } */
 
   a {
     text-decoration: none;
@@ -241,6 +258,13 @@ export default {
     white-space:nowrap;
     display: inline-block;
     vertical-align: middle;
+  }
+  .toobar .active{
+    color:#fff;
+    font-size: 15px;
+    background:#80bd01;
+    border-radius:3px;
+    padding:3px 4px;
   }
 </style>
 

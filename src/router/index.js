@@ -4,6 +4,7 @@ import Article from '../components/Article'
 import PostList from '../components/PostList'
 import UserInfor from '../components/UserInfor'
 import SlideBar from '../components/SlideBar'
+import Essence from '../components/Essence'
 
 
 Vue.use(Router)
@@ -31,6 +32,6 @@ export default new Router({
       components:{
         main:UserInfor
       }
-    }
+    },
   ]
 })
