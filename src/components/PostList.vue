@@ -32,9 +32,7 @@
           </span>
           
           <!-- 帖子的分类 -->
-          <span :class="[{put_good:(post.good == true),put_top:(post.top == true),
-                    'topiclist-tab':(post.top != true&& post.good != true)}]">
-          
+          <span :class="[{put_good:(post.good == true),put_top:(post.top == true),'topiclist_tab':(post.top != true&& post.good != true)}]">
             <span>{{post | tabFormat}}</span>
           </span>
 
@@ -197,7 +195,7 @@ export default {
     margin-right: 10px;
   }
 
-  .topiclist-tab {
+  .topiclist_tab {
     background-color: #e5e5e5;
     color: #999;
     padding: 2px 4px;
