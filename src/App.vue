@@ -11,13 +11,11 @@
 <script>
 import Header from './components/Header'
 import PostList from './components/PostList'
-import Essence from './components/Essence'
 export default {
   name: 'App',
   components:{
     Header,
     PostList,
-    Essence
   }
 }
 </script>

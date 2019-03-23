@@ -33,7 +33,7 @@
 
                     <!-- 帖子的分类 -->
                     <span :class="[{put_good:(post.good == true),put_top:(post.top == true),
-                          'topiclist-tab':(post.good != true&& post.top != true)}]">
+                          'topiclist-tab2':(post.good != true&& post.top != true)}]">
                         <span>
                             {{post | tabFormatter}}
                         </span>
@@ -195,7 +195,7 @@ export default {
     margin-right: 10px;
   }
 
-  .topiclist-tab {
+  .topiclist-tab2 {
     background-color: #e5e5e5;
     color: #999;
     padding: 2px 4px;
