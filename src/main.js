@@ -44,6 +44,7 @@ Vue.filter('formatDate',function(str){
 
 // 这个过滤器 处理显示板块的文字 
 Vue.filter('tabFormat',function(post){
+  console.log(post);
   if(post.top == true){
     return '置顶'
   }else if(post.good == true){
